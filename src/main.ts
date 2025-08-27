@@ -1,6 +1,6 @@
-import './style.css'
-
 import { Header } from './components/Header.ts'
+
+import './style.css'
 
 function main () {
   const app = document.getElementById('app');
