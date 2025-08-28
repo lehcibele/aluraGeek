@@ -1,4 +1,5 @@
-import { Header } from './components/Header.ts'
+import { Header } from './components/Header'
+import { Main } from './components/Main';
 
 import './style.css'
 
@@ -7,6 +8,7 @@ function main () {
   if(!app) return;
 
   app.appendChild(Header());
+  app.appendChild(Main());
 }
 
 main();

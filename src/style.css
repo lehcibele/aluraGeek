@@ -5,9 +5,11 @@
 /* stylelint-disable unknownAtRules */
 @theme {
     --font-press: "Press Start 2P";
+    --font-ibm: "IBM Plex Mono";
     --color-fundo-header: #5300C8;
     --color-efeito-titulo: #E53935;
     --shadow-header: 0px 7px 0.9px rgba(0, 0, 0, 0.25);
+    --color-azul-form: #03318C;
 }
 /* stylelint-enable unknownAtRules */
 
