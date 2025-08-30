@@ -7,7 +7,7 @@ export function Main(): HTMLElement {
     const form = Formulario();
     const cards = ProdutosCards();
 
-    main.className = "flex justify-center mt-[7%]"
+    main.className = "flex justify-center mt-[7%] gap-[5%]"
 
     main.appendChild(cards);
     main.appendChild(form);

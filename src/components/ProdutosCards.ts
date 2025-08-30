@@ -1,9 +1,7 @@
-
-
 export function ProdutosCards(): HTMLElement {
-    const card = document.createElement('div');
-    card.textContent = "Cards do Produto";
-    card.className = "w-3/5";
+    const cardContainer = document.createElement('div');
+    cardContainer.textContent = "Cards do Produto";
+    cardContainer.className = "w-3xl";
 
-    return card;
+    return cardContainer;
 }

@@ -1,57 +1,52 @@
+import { adicionarProduto, limparForms } from "./Formulario.events";
+
 export function Formulario(): HTMLFormElement {
     const formulario = document.createElement('form');
+    formulario.className= "w-md flex flex-col items-center gap-y-[40px]"
+
     const titulForm = document.createElement('h2');
-    const inputNomeProduto = document.createElement('input');
-    const inputValorProduto = document.createElement('input');
-    const inputImagemProduto = document.createElement('input');
-    const botaoGuardar = document.createElement('button');
-    const botaoLimpar = document.createElement('button');
-
-    formulario.className= "flex flex-col gap-y-[40px]"
-
     titulForm.textContent = "ADICIONAR PRODUTO:";
     titulForm.className = "w-full text-center font-press text-2xl font-normal w-2/5";
 
-    inputNomeProduto.id = "input-nome-produto";
-    inputNomeProduto.placeholder = "Nome..."
-    inputNomeProduto.className = `
-        w-sm h-[58px] border-[3px] border-azul-form rounded-[30px] p-4
-        placeholder:font-ibm placeholder:font-semibold placeholder:text-azul-form
-    `;
+    const inputNomeProduto = criarInput("input-nome-produto", "Nome...");
+    const inputValorProduto = criarInput("input-valor-produto", "Valor...");
+    const inputImagemProduto = criarInput("input-imagem-produto", "Imagem...");
 
-    inputValorProduto.id = "input-valor-produto";
-    inputValorProduto.placeholder = "Valor...";
-    inputValorProduto.className = `
-        w-sm h-[58px] border-[3px] border-azul-form rounded-[30px] p-4
-        placeholder:font-ibm placeholder:font-semibold placeholder:text-azul-form
-    `;
+    const divContainerButton = document.createElement('div');
+    divContainerButton.className = `
+        flex gap-[0.8rem] justify-center
+    `;  
 
-    inputImagemProduto.id = "input-imagem-produto";
-    inputImagemProduto.placeholder = "Imagem...";
-    inputImagemProduto.className = `
-        w-sm h-[58px] border-[3px] border-azul-form rounded-[30px] p-4
-        placeholder:font-ibm placeholder:font-semibold placeholder:text-azul-form
-    `;
+    const botaoGuardar = criarBotao("Guardar", "btn-guardar", adicionarProduto, "submit");
+    const botaoLimpar = criarBotao("Limpar", "btn-limpar", limparForms);
 
-    botaoGuardar.id = "btn-guardar";
-    botaoGuardar.type = "submit"
-    botaoGuardar.textContent = "Guardar";
-    botaoGuardar.className = `
-        w-48 h-[55px] bg-azul-form text-white rounded-[15px] font-ibm font-medium text-xl hover:bg-fundo-header
-    `;
-
-    botaoLimpar.id = "btn-limpar";
-    botaoLimpar.textContent = "Limpar";
-    botaoLimpar.className = `
-        w-48 h-[55px] border-[3px] border-azul-form rounded-[15px] text-azul-form font-ibm font-medium text-xl hover:bg-fundo-header
-    `;
-
-    formulario.appendChild(titulForm);
-    formulario.appendChild(inputNomeProduto);
-    formulario.appendChild(inputValorProduto);
-    formulario.appendChild(inputImagemProduto);
-    formulario.appendChild(botaoGuardar);
-    formulario.appendChild(botaoLimpar);
+    formulario.append(titulForm, inputNomeProduto, inputValorProduto, inputImagemProduto, divContainerButton);
+    divContainerButton.append(botaoGuardar, botaoLimpar);
 
     return formulario;
+}
+
+// Função para criar inputs
+function criarInput(id: string, placeholder: string): HTMLInputElement {
+    const input = document.createElement('input');
+    input.id = id;
+    input.placeholder = placeholder;
+    input.className = `
+        w-sm h-[58px] border-[3px] border-azul-form rounded-[30px] p-4
+        placeholder:font-ibm placeholder:font-semibold placeholder:text-azul-form
+    `;
+    return input;
+}
+
+// Função para criar botões
+function criarBotao(texto: string, id: string, evento: (e: Event) => void, type: "button" | "submit" = "button"): HTMLButtonElement {
+    const botao = document.createElement('button');
+    botao.id = id;
+    botao.type = type;
+    botao.textContent = texto;
+    botao.addEventListener('click', evento);
+    botao.className = `
+        w-46 h-[55px] border-[3px] border-azul-form rounded-[15px] text-azul-form font-ibm font-medium text-xl hover:bg-fundo-header hover:border-fundo-header hover:text-white
+    `;
+    return botao;
 }
