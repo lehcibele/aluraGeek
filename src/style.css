@@ -8,8 +8,11 @@
     --font-ibm: "IBM Plex Mono";
     --color-fundo-header: #5300C8;
     --color-efeito-titulo: #E53935;
+    --color-fundo-card: #5D04D9;
     --shadow-header: 0px 7px 0.9px rgba(0, 0, 0, 0.25);
     --color-azul-form: #03318C;
+    --shadow-card: -5px 6px 3.3px rgba(0, 0, 0, 0.25);
+
 }
 /* stylelint-enable unknownAtRules */
 

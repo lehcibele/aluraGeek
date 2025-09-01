@@ -10,6 +10,10 @@ export function Formulario(): HTMLFormElement {
 
     const inputNomeProduto = criarInput("input-nome-produto", "Nome...");
     const inputValorProduto = criarInput("input-valor-produto", "Valor...");
+    const mensagemErro = document.createElement('p');
+    mensagemErro.id = "mensagem-erro";
+    mensagemErro.className = "text-azul-form text-sm mt-2 hidden";
+    mensagemErro.textContent = "Por favor, insira um valor numérico válido."; // texto padrão
     const inputImagemProduto = criarInput("input-imagem-produto", "Imagem...");
 
     const divContainerButton = document.createElement('div');
@@ -20,7 +24,7 @@ export function Formulario(): HTMLFormElement {
     const botaoGuardar = criarBotao("Guardar", "btn-guardar", adicionarProduto, "submit");
     const botaoLimpar = criarBotao("Limpar", "btn-limpar", limparForms);
 
-    formulario.append(titulForm, inputNomeProduto, inputValorProduto, inputImagemProduto, divContainerButton);
+    formulario.append(titulForm, inputNomeProduto, inputValorProduto, mensagemErro, inputImagemProduto, divContainerButton);
     divContainerButton.append(botaoGuardar, botaoLimpar);
 
     return formulario;
