@@ -6,7 +6,7 @@ Desenvolvido com **TypeScript**, **Vite**, **Tailwind CSS** e manipulação dire
 ---
 
 ## 📸 Pré-visualização
-![AluraGeek](public/img/image.png)
+[![AluraGeek](public/img/image.png)](https://alura-geek-snowy-three.vercel.app/)
 
 ---
 
@@ -23,7 +23,6 @@ Desenvolvido com **TypeScript**, **Vite**, **Tailwind CSS** e manipulação dire
 - **TypeScript**
 - **HTML5**
 - **Tailwind CSS**
-- **LocalStorage API**
 
 ---
 
