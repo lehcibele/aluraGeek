@@ -1,10 +1,11 @@
 import { atualizarCards } from "../ProdutosCards";
 
 export const produtos: {
+    id: number;
     nome: string;
     valorNum: number;
     imagem: string;
-}[] = [];
+}[] = JSON.parse(localStorage.getItem("produtos") || "[]");
 
 export function adicionarProduto(e: Event) {
     e.preventDefault(); // impede o realod da página ao clicar no botão guardar
@@ -29,11 +30,27 @@ export function adicionarProduto(e: Event) {
 
     // Se estiver tudo certo, oculta a mensagem
     mensagemErro.classList.add("hidden");
-    
-    produtos.push({nome, valorNum, imagem}); // adicionar ao array global
 
+    const id = produtos.length > 0 ? produtos[produtos.length - 1].id + 1 : 1;
+    
+    produtos.push({id, nome, valorNum, imagem}); // adicionar ao array global
+
+    salvarNoLocalStorage(); // salva no localStorage
     atualizarCards(); // Atualiza a lista de cards
 
+}
+
+export function removerProduto(id: number) {
+    const index = produtos.findIndex(prod => prod.id === id);
+    if(index !== -1) {
+        produtos.splice(index, 1);
+        salvarNoLocalStorage();
+        atualizarCards();
+    }
+}
+
+function salvarNoLocalStorage() {
+    localStorage.setItem("produtos", JSON.stringify(produtos));
 }
 
 // Limpar forms ao clicar no botão Limpar

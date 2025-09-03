@@ -1,7 +1,10 @@
-import { produtos } from "./formulario/Formulario.events";
+import { produtos, removerProduto } from "./formulario/Formulario.events";
 
 const cardContainer = document.createElement('div');
-cardContainer.className = "w-3xl h-[500px] overflow-y-scroll";
+cardContainer.className = `
+    w-3xl 
+    max-md:w-[100%] max-md:mt-[8%]
+`;
 
 export function ProdutosCards(): HTMLElement {
     atualizarCards();
@@ -27,7 +30,7 @@ export function atualizarCards() {
     }
 
     const containerProdutos = document.createElement('div');
-    containerProdutos.className = "flex gap-x-[1%] gap-y-[1%] justify-center flex-wrap"
+    containerProdutos.className = "flex gap-x-[1%] gap-y-[1%] justify-center flex-wrap mb-[5%] h-[600px] overflow-y-scroll"
 
     produtos.forEach(produto => {
         const cardProduto = document.createElement('div');
@@ -44,12 +47,22 @@ export function atualizarCards() {
             
             <div class="w-full flex justify-around">
                 <p class="text-white font-ibm">R$ ${produto.valorNum.toFixed(2)}</p>
-                <img src="img/icon-lixeira.png">
+                <img class="icon-lixeira" data-id="${produto.id}" src="img/icon-lixeira.png" alt="Remover Produto">
             </div>
         `;
         containerProdutos.appendChild(cardProduto);
     });
 
     cardContainer.appendChild(containerProdutos);
+
+    // Depois de montar todos os cards
+    const iconesLixeira = containerProdutos.querySelectorAll<HTMLImageElement>(".icon-lixeira");
+    iconesLixeira.forEach(icone => {
+        icone.addEventListener("click", () => {
+            const id = Number(icone.dataset.id);
+            if (Number.isNaN(id)) return;
+            removerProduto(id);
+        });
+    });
 
 }

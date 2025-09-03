@@ -2,7 +2,10 @@ import { adicionarProduto, limparForms } from "./Formulario.events";
 
 export function Formulario(): HTMLFormElement {
     const formulario = document.createElement('form');
-    formulario.className= "w-md flex flex-col items-center gap-y-[40px]"
+    formulario.className= `
+        w-md flex flex-col items-center gap-y-[40px]
+        max-md:w-[100%]
+    `;
 
     const titulForm = document.createElement('h2');
     titulForm.textContent = "ADICIONAR PRODUTO:";
@@ -38,6 +41,8 @@ function criarInput(id: string, placeholder: string): HTMLInputElement {
     input.className = `
         w-sm h-[58px] border-[3px] border-azul-form rounded-[30px] p-4
         placeholder:font-ibm placeholder:font-semibold placeholder:text-azul-form
+        max-md:w-[300px]
+       
     `;
     return input;
 }
@@ -51,6 +56,7 @@ function criarBotao(texto: string, id: string, evento: (e: Event) => void, type:
     botao.addEventListener('click', evento);
     botao.className = `
         w-46 h-[55px] border-[3px] border-azul-form rounded-[15px] text-azul-form font-ibm font-medium text-xl hover:bg-fundo-header hover:border-fundo-header hover:text-white
+        max-md:w-[140px]
     `;
     return botao;
 }

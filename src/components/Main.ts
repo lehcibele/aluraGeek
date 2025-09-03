@@ -7,7 +7,11 @@ export function Main(): HTMLElement {
     const form = Formulario();
     const cards = ProdutosCards();
 
-    main.className = "flex justify-center mt-[7%] gap-[5%]"
+    main.className = `
+        flex justify-center gap-[5%] 
+        max-xl:max-w-[95%] max-xl:m-auto
+        max-md:flex-col-reverse 
+    `;
 
     main.appendChild(cards);
     main.appendChild(form);

@@ -12,8 +12,12 @@
     --shadow-header: 0px 7px 0.9px rgba(0, 0, 0, 0.25);
     --color-azul-form: #03318C;
     --shadow-card: -5px 6px 3.3px rgba(0, 0, 0, 0.25);
-
+    --shadow-conatiner-card: -12px 10px 5.8px rgba(0, 0, 0, 0.25);
+    --breakpoint-xs: 27rem;
 }
+
+
+
 /* stylelint-enable unknownAtRules */
 
 /* Header */

@@ -3,7 +3,7 @@ import "../style.css";
 export function Header(): HTMLElement {
     // Container Header
     const header = document.createElement('header');
-    header.className = "h-[120px] bg-fundo-header flex justify-center items-center shadow-header max-sm:h-[90px]";
+    header.className = "h-[120px] mb-[7%]  bg-fundo-header flex justify-center items-center shadow-header max-sm:h-[90px]";
 
     // Logo
     const divImg = document.createElement('div');

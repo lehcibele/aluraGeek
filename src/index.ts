@@ -1,3 +1,4 @@
+import { Footer } from './components/Footer';
 import { Header } from './components/Header'
 import { Main } from './components/Main';
 
@@ -9,6 +10,7 @@ function main () {
 
   app.appendChild(Header());
   app.appendChild(Main());
+  app.appendChild(Footer());
 }
 
 main();
